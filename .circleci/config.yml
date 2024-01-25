@@ -1,0 +1,12 @@
+version: 2.1
+orbs:
+  bridgecrew: bridgecrew/checkov@1.0.5
+jobs:
+  build:
+    executor: checkov/default
+    steps:
+      - checkout
+      - checkov/scan:
+          directory: .
+          api-key-variable: BC_API_KEY 
+          prisma-api-url: https://api0.prismacloud.io
